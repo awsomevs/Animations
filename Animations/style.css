@@ -1,0 +1,157 @@
+/* --- Base Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #16a34a; /* Tailwind Green */
+    color: white;
+    padding: 30px 10%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    padding: 40px 10%;
+    margin: 20px auto;
+    max-width: 1000px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #16a34a;
+    border-bottom: 2px solid #bbf7d0;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.code-block {
+    background-color: #e5e7eb;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+code {
+    font-family: monospace;
+    color: #1f2937;
+    font-size: 0.9em;
+}
+
+.example-area {
+    margin: 30px 0;
+    padding: 40px 20px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    /* Create a space for the slide-in effect */
+    overflow: hidden; 
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 40px 10%;
+}
+
+/* Table Styles */
+.properties-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.properties-table th, .properties-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.properties-table th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+    color: #16a34a;
+}
+.properties-table code {
+    background-color: #e5e7eb;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #1f2937;
+}
+
+/* --- Example-Specific Styles --- */
+
+.box {
+    width: 150px;
+    height: 80px;
+    background-color: #ef4444; /* Red */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 1. Keyframe Definition (Using from/to) */
+@keyframes slide-in {
+    from { 
+        transform: translateX(-150%); 
+        opacity: 0;
+    } 
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    } 
+}
+
+/* 2. Animation Application (The Playback) */
+.animation-example {
+    /* Initial state hidden */
+    opacity: 0; 
+    
+    /* Animation Control Properties */
+    animation-name: slide-in;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1; 
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s; 
+    animation-fill-mode: forwards; /* IMPORTANT: Keeps the 100% (to) styles when finished */
+}
+
+
+/* Performance Section List Styling */
+#performance ul {
+    list-style: none;
+    padding: 0;
+}
+#performance li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #e5e7eb;
+}
+#performance li::before {
+    content: "✅";
+    margin-right: 10px;
+}
+#performance li:nth-child(3)::before {
+    content: "❌";
+    color: red;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations: Full Property List</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>CSS Animations: Keyframes 🎬</h1>
+        <p>Defining Complex, Multi-Step Motion with CSS.</p>
+    </header>
+
+    <section id="intro">
+        <h2>The Core Concept</h2>
+        <p>CSS Animations use **Keyframes** to control complex motion. Keyframes define the element's appearance (CSS properties) at specific points (waypoints) along the animation timeline. The browser smoothly interpolates the steps between these keyframes.</p>
+    </section>
+
+    <section id="animations">
+        <h2>How CSS Animations Work</h2>
+        
+        <h3>Keyframe Syntax: From/To Example</h3>
+        <p>The **`@keyframes`** rule defines the sequence using percentages ($0\%$ to $100\%$) or the keywords **`from`** ($0\%$) and **`to`** ($100\%$).</p>
+        
+        <div class="code-block">
+            <pre><code>@keyframes slide-in {
+    /* from is 0% */
+    from { 
+        transform: translateX(-150%); 
+        opacity: 0;
+    } 
+    /* to is 100% */
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    } 
+}</code></pre>
+        </div>
+
+        <h4>Applying the Animation:</h4>
+        <div class="code-block">
+            <pre><code>.animated-element {
+    animation-name: slide-in;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+}</code></pre>
+        </div>
+
+        <h3>Live Example (Runs automatically on load):</h3>
+        <div class="example-area">
+            <div class="box animation-example">Slid In!</div>
+        </div>
+    </section>
+    
+    <hr>
+    
+    <section id="properties">
+        <h2>All CSS Animation Properties</h2>
+        <p>These eight longhand properties provide complete control over the animation's playback:</p>
+        
+        <table class="properties-table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>animation-name</code></td>
+                    <td>Links the element to the name defined in the <code>@keyframes</code> rule.</td>
+                </tr>
+                <tr>
+                    <td><code>animation-duration</code></td>
+                    <td>Sets the time one full cycle of the animation takes (e.g., <code>2s</code> or <code>500ms</code>).</td>
+                </tr>
+                <tr>
+                    <td><code>animation-timing-function</code></td>
+                    <td>Defines the acceleration curve (the speed) of the animation (e.g., <code>linear</code>, <code>ease-in-out</code>).</td>
+                </tr>
+                <tr>
+                    <td><code>animation-delay</code></td>
+                    <td>Specifies the delay before the animation starts playing.</td>
+                </tr>
+                <tr>
+                    <td><code>animation-iteration-count</code></td>
+                    <td>Determines how many times the animation should loop (e.g., <code>3</code> or <code>infinite</code>).</td>
+                </tr>
+                <tr>
+                    <td><code>animation-direction</code></td>
+                    <td>Sets whether the animation plays forward (<code>normal</code>) or alternates between forward and backward cycles (<code>alternate</code>).</td>
+                </tr>
+                <tr>
+                    <td><code>animation-fill-mode</code></td>
+                    <td>Controls the styles applied to the element before the animation starts and after it finishes (e.g., <code>forwards</code> keeps the final style).</td>
+                </tr>
+                <tr>
+                    <td><code>animation-play-state</code></td>
+                    <td>Allows the animation to be paused or resumed (<code>paused</code> or <code>running</code>).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>The **<code>animation</code>** property is a **shorthand** for setting all these properties in one line.</p>
+    </section>
+
+    <hr>
+
+    <section id="performance">
+        <h2>🚀 Performance: The Transform & Opacity Rule</h2>
+        <p>To ensure smooth 60 FPS animation, always favor properties that don't force the browser to recalculate the page layout (**reflow**):</p>
+        
+        <ul>
+            <li>✅ **`transform`**: For movement (`translate`), rotation (`rotate`), and size (`scale`).</li>
+            <li>✅ **`opacity`**: For fading and visibility changes.</li>
+            <li>❌ **Avoid**: Animating `width`, `height`, or positioning properties like `left`/`top`.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; CSS Animation Explanation. Keyframes Focus.</p>
+    </footer>
+
+</body>
+</html>
