@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Animations: Multiple Examples</title>
+    <title>CSS Animations: Hover Triggered</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -90,6 +90,32 @@
         <div class="example-area">
             <button class="pulse-btn-example">PULSE ME</button>
         </div>
+
+        <hr>
+
+        <h3>4. Hover-Triggered Animation (Using `:hover`) ✨</h3>
+        <p>Animations don't have to start automatically! You can define an animation and only apply it when a user interacts with the element, like hovering over it.</p>
+        
+        <div class="code-block">
+            <pre><code>/* KEYFRAMES */
+@keyframes jiggle {
+    0%, 100% { transform: translateX(0); }
+    25%      { transform: translateX(-5px); }
+    75%      { transform: translateX(5px); }
+}
+/* APPLICATION */
+.hover-jiggle:hover { /* Animation applied ONLY on hover */
+    animation-name: jiggle;
+    animation-duration: 0.3s;
+    animation-iteration-count: 2; /* Jiggle a couple of times */
+    animation-timing-function: ease-in-out;
+}</code></pre>
+        </div>
+        
+        <div class="example-area">
+            <div class="box hover-jiggle-example">Hover to Jiggle!</div>
+        </div>
+
     </section>
     
     <hr>
