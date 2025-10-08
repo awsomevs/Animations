@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Animations: Full Property List</title>
+    <title>CSS Animations: Multiple Examples</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -19,39 +19,76 @@
     </section>
 
     <section id="animations">
-        <h2>How CSS Animations Work</h2>
+        <h2>How CSS Animations Work & Examples</h2>
         
-        <h3>Keyframe Syntax: From/To Example</h3>
-        <p>The **`@keyframes`** rule defines the sequence using percentages ($0\%$ to $100\%$) or the keywords **`from`** ($0\%$) and **`to`** ($100\%$).</p>
+        <h3>1. Slide-In Effect (Using `from` and `to`)</h3>
+        <p>Ideal for running once, bringing an element into view. The **`from`** keyword is **$0\%$**, and **`to`** is **$100\%$**.</p>
         
         <div class="code-block">
-            <pre><code>@keyframes slide-in {
-    /* from is 0% */
-    from { 
-        transform: translateX(-150%); 
-        opacity: 0;
-    } 
-    /* to is 100% */
-    to { 
-        transform: translateX(0); 
-        opacity: 1;
-    } 
-}</code></pre>
-        </div>
-
-        <h4>Applying the Animation:</h4>
-        <div class="code-block">
-            <pre><code>.animated-element {
+            <pre><code>/* KEYFRAMES */
+@keyframes slide-in {
+    from { transform: translateX(-150%); opacity: 0; } 
+    to { transform: translateX(0); opacity: 1; } 
+}
+/* APPLICATION */
+.slide-box {
     animation-name: slide-in;
     animation-duration: 1.5s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards; /* Stays at the 'to' state */
 }</code></pre>
         </div>
+        
+        <div class="example-area slide-area">
+            <div class="box slide-in-example">Slid In!</div>
+        </div>
+        
+        <hr>
 
-        <h3>Live Example (Runs automatically on load):</h3>
+        <h3>2. Continuous Spin (Using `from` and `to`)</h3>
+        <p>Great for loaders or icons that need constant, simple motion. This requires **`animation-iteration-count: infinite`**.</p>
+        
+        <div class="code-block">
+            <pre><code>/* KEYFRAMES */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+/* APPLICATION */
+.spinner {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; /* Continuous */
+    animation-timing-function: linear; /* Constant speed */
+}</code></pre>
+        </div>
+        
         <div class="example-area">
-            <div class="box animation-example">Slid In!</div>
+            <div class="spinner-box spin-example"></div>
+        </div>
+        
+        <hr>
+
+        <h3>3. Pulsing Effect (Using Percentages)</h3>
+        <p>Used for attention-grabbing elements. This requires **percentages** (0%, 50%, 100%) to define the midpoint and **`animation-direction: alternate`**.</p>
+        
+        <div class="code-block">
+            <pre><code>/* KEYFRAMES */
+@keyframes pulse {
+    0%   { transform: scale(1); } 
+    50%  { transform: scale(1.15); } /* Grow */
+    100% { transform: scale(1); } /* Shrink */
+}
+/* APPLICATION */
+.pulse-btn {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; /* Plays 0->100, then 100->0 */
+}</code></pre>
+        </div>
+        
+        <div class="example-area">
+            <button class="pulse-btn-example">PULSE ME</button>
         </div>
     </section>
     
@@ -103,8 +140,6 @@
                 </tr>
             </tbody>
         </table>
-        
-        <p>The **<code>animation</code>** property is a **shorthand** for setting all these properties in one line.</p>
     </section>
 
     <hr>
